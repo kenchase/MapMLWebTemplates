@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap');
+
+/* Breakpoints - Bootstrap */
+$bootstrap_sm: 576px;
+$bootstrap_med: 768px;
+$bootstrap_large: 992px;
+$bootstrap_xl: 1200px;
+
+/* Bootsrap - Cutomize container max-widths */
+@media (min-width: $bootstrap_sm) and (max-width: $bootstrap_xl - 1px) {
+  .container {
+    max-width: none;
+  }
+}
+
+/* Typography */
+$font__main: 'Noto Sans', sans-serif;
+
+/* Colours */
+// Global
+$color__light: #fff;
+$color__dark: #2b3035;
+$color__logo-blue: #515aa9;
+$color__logo-blue-dark: #353b6e;
+
+// Footer
+$color__footer-nav-bg: #f5f5f5;
+$color__footer-copy-bg: #2b3035;
+
+// Removing default browser behaviour. Because of this, make sure that all elements are styled to make it clear when an itm has focus.
+*:focus {
+  outline: none;
+}
+
+body {
+  font-family: $font__main;
+}
+
+header {
+  padding: 0.625rem 0;
+}
+main {
+  h1 {
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 1.2em;
+    letter-spacing: 1.3px;
+    text-shadow: 0px 0px 0px rgb(0 0 0 / 83%);
+  }
+  h2 {
+    color: $color__logo-blue;
+    font-size: 2.75em;
+    font-weight: 600;
+    line-height: 1;
+  }
+  h3 {
+    color: $color__logo-blue;
+    font-size: 1.75em;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  a {
+    color: $color__logo-blue;
+    text-decoration-color: transparent;
+    transition: all 300ms ease-in-out;
+    &:hover {
+      color: $color__dark;
+      text-decoration-color: $color__dark;
+      text-decoration: underline;
+    }
+  }
+  .main-banner {
+    background-image: url(../../images/geoca-banner-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color__light;
+    padding: 5rem 0;
+    position: relative;
+    .main-banner-content {
+      background-color: #050d152e;
+      backdrop-filter: blur(20px);
+      border: 1px solid $color__light;
+      padding: 2.25rem;
+      .breacrumb-list {
+        font-size: 17px;
+        font-weight: 200;
+        a {
+          color: $color__light;
+          &:hover {
+            color: $color__light;
+          }
+        }
+        .fas {
+          padding-left: 0.5rem;
+        }
+      }
+      .main-banner-content-title {
+        margin-bottom: 2rem;
+      }
+    }
+    .overlay {
+      background-color: #0e161e;
+      opacity: 0.6;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+    }
+    @media screen and (min-width: $bootstrap_large) {
+      min-height: 525px;
+    }
+  }
+  .main-content {
+    margin-top: 2.5rem;
+  }
+}
+footer {
+  margin-top: 60px;
+  .nav {
+    background-color: $color__footer-nav-bg;
+    border-top: 1px solid $color__footer-nav-bg;
+    border-bottom: 1px solid $color__footer-nav-bg;
+    padding: 2rem 1.25rem;
+    ul {
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .list-inline-item {
+      &:not(:first-of-type)::before {
+        content: ' \2022';
+        margin-right: 0.75rem;
+      }
+    }
+    a {
+      color: $color__logo-blue;
+      text-decoration: none;
+      text-decoration-color: transparent;
+      transition: text-decoration 300ms ease-in-out;
+      &:hover {
+        color: $color__logo-blue;
+        text-decoration-color: $color__logo-blue;
+        text-decoration: underline;
+      }
+    }
+  }
+  .copy-terms {
+    background-color: $color__footer-copy-bg;
+    color: $color__light;
+    font-weight: 200;
+    padding: 1.25rem;
+    a {
+      color: $color__light;
+      text-decoration: none;
+      text-decoration-color: transparent;
+      transition: text-decoration 300ms ease-in-out;
+      &:hover {
+        color: $color__light;
+        text-decoration-color: $color__light;
+        text-decoration: underline;
+      }
+    }
+    .copy {
+      text-align: center;
+      @media screen and (min-width: $bootstrap_large) {
+        text-align: left;
+      }
+    }
+    .terms {
+      text-align: center;
+      p {
+        margin-bottom: 0;
+      }
+      @media screen and (min-width: $bootstrap_large) {
+        text-align: right;
+      }
+    }
+    @media screen and (min-width: $bootstrap_large) {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+@import 'mega-menu';
