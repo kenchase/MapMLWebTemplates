@@ -5,11 +5,24 @@ $bootstrap_sm: 576px;
 $bootstrap_med: 768px;
 $bootstrap_large: 992px;
 $bootstrap_xl: 1200px;
+$bootstrap_xxl: 1400px;
 
 /* Bootsrap - Cutomize container max-widths */
-@media (min-width: $bootstrap_sm) and (max-width: $bootstrap_xl - 1px) {
-  .container {
+
+.container {
+  @media (min-width: $bootstrap_sm) and (max-width: $bootstrap_xl - 1px) {
     max-width: none;
+  }
+}
+
+.main-banner {
+  .container {
+    @media (min-width: $bootstrap_xl) and (max-width: $bootstrap_xxl - 1px) {
+      //max-width: 1360px;
+    }
+    @media (min-width: $bootstrap_xxl) {
+      //max-width: 1360px;
+    }
   }
 }
 
@@ -22,6 +35,10 @@ $color__light: #fff;
 $color__dark: #2b3035;
 $color__logo-blue: #515aa9;
 $color__logo-blue-dark: #353b6e;
+
+// Hero Banner
+$color__hero-bg: #2b3035;
+$color__hero-overlay: #0e161e;
 
 // Footer
 $color__footer-nav-bg: #f5f5f5;
@@ -41,17 +58,23 @@ header {
 }
 main {
   h1 {
-    font-size: 50px;
+    font-size: 2em;
     font-weight: 500;
     line-height: 1.2em;
     letter-spacing: 1.3px;
     text-shadow: 0px 0px 0px rgb(0 0 0 / 83%);
+    @media (min-width: $bootstrap_xl) {
+      font-size: 3.125rem;
+    }
   }
   h2 {
     color: $color__logo-blue;
-    font-size: 2.75em;
+    font-size: 2em;
     font-weight: 600;
     line-height: 1;
+    @media (min-width: $bootstrap_xl) {
+      font-size: 2.75em;
+    }
   }
   h3 {
     color: $color__logo-blue;
@@ -69,18 +92,19 @@ main {
       text-decoration: underline;
     }
   }
+  /*
+  The banner has three styles. Add one of the following classes to <section class="main-banner"> element
+  1 - main-banner-default: hero banner with full size image 
+  2 - main-banner-small: hero banner with full size image 
+  3 - main-banner-minimal hero banner with no background image
+  */
   .main-banner {
-    background-image: url(../../images/geoca-banner-2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: $color__hero-bg;
     color: $color__light;
-    padding: 5rem 0;
+    padding: 0 0;
     position: relative;
+
     .main-banner-content {
-      background-color: #050d152e;
-      backdrop-filter: blur(20px);
-      border: 1px solid $color__light;
-      padding: 2.25rem;
       .breacrumb-list {
         font-size: 17px;
         font-weight: 200;
@@ -98,17 +122,53 @@ main {
         margin-bottom: 2rem;
       }
     }
-    .overlay {
-      background-color: #0e161e;
-      opacity: 0.6;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      position: absolute;
-    }
-    @media screen and (min-width: $bootstrap_large) {
+    &.main-banner-default {
+      padding: 5rem 0;
       min-height: 525px;
+      .main-banner-content {
+        padding: 2.25rem;
+      }
+    }
+    &.main-banner-small {
+      padding: 2.5rem 0;
+      min-height: 350px;
+      .main-banner-content {
+        padding: 1.25rem;
+      }
+    }
+    &.main-banner-default,
+    &.main-banner-small {
+      background-image: url(../../images/geoca-banner-2.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      .overlay {
+        background-color: $color__hero-overlay;
+        display: block;
+        opacity: 0.6;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+      }
+      .main-banner-content {
+        backdrop-filter: blur(20px);
+        border: 1px solid $color__light;
+      }
+    }
+    &.main-banner-minimal {
+      padding: 2.5rem 0;
+      .overlay {
+        display: none;
+      }
+      .main-banner-content {
+        .main-banner-content-title {
+          margin-bottom: 0;
+          @media (min-width: $bootstrap_xl) {
+            font-size: 2.5rem;
+          }
+        }
+      }
     }
   }
   .main-content {

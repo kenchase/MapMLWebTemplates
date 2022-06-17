@@ -32,17 +32,16 @@ $size__menu-height: 100px;
     align-items: left;
     width: 50%;
     height: 100px;
-    padding: 10px 20px;
+    padding: 10px 0;
     display: none;
     img {
       display: block;
-      height: 70px;
     }
   }
   .cgp-mega-menu-toggle {
     display: none;
     position: absolute;
-    top: 26px;
+    top: 40px;
     right: 20px;
     z-index: 1;
     background: $color__menu-bg-color !important;
