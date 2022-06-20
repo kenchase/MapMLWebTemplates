@@ -49,6 +49,16 @@ $color__footer-copy-bg: #2b3035;
   outline: none;
 }
 
+// Utilitu classes
+.cgp-inv {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
 body {
   font-family: $font__main;
 }
@@ -177,6 +187,28 @@ main {
 }
 footer {
   margin-top: 60px;
+  .meta {
+    padding: 1.25rem;
+    .meta-1 {
+      text-align: center;
+      @media screen and (min-width: $bootstrap_large) {
+        text-align: left;
+      }
+      .cgp-dtmd {
+        dd,
+        dt {
+          display: inline;
+          font-weight: 400;
+        }
+      }
+    }
+    .meta-2 {
+      text-align: center;
+      @media screen and (min-width: $bootstrap_large) {
+        text-align: right;
+      }
+    }
+  }
   .nav {
     background-color: $color__footer-nav-bg;
     border-top: 1px solid $color__footer-nav-bg;
@@ -242,4 +274,5 @@ footer {
     }
   }
 }
+@import 'lang-selection';
 @import 'mega-menu';
