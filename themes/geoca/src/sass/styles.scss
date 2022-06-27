@@ -93,13 +93,24 @@ main {
     letter-spacing: -0.01em;
   }
   a {
-    color: $color__logo-blue;
-    text-decoration-color: transparent;
-    transition: all 300ms ease-in-out;
+    &:link {
+      color: $color__logo-blue;
+      text-decoration-color: transparent;
+      transition: all 300ms ease-in-out;
+    }
+    &:visited {
+      color: $color__logo-blue;
+    }
     &:hover {
       color: $color__dark;
       text-decoration-color: $color__dark;
       text-decoration: underline;
+    }
+    &:focus {
+      text-decoration-color: $color__dark;
+    }
+    &:active {
+      text-decoration-color: $color__dark;
     }
   }
   /*
@@ -194,18 +205,18 @@ footer {
       @media screen and (min-width: $bootstrap_large) {
         text-align: left;
       }
-      .cgp-dtmd {
-        dd,
-        dt {
-          display: inline;
-          font-weight: 400;
-        }
-      }
     }
     .meta-2 {
       text-align: center;
       @media screen and (min-width: $bootstrap_large) {
         text-align: right;
+      }
+    }
+    .cgp-dtmd {
+      dd,
+      dt {
+        display: inline;
+        font-weight: 400;
       }
     }
   }
