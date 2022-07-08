@@ -27,7 +27,7 @@ $bootstrap_xxl: 1400px;
 }
 
 /* Typography */
-$font__main: 'Noto Sans', sans-serif;
+$font__main: 'Open Sans', 'Noto Sans', sans-serif;
 
 /* Colours */
 // Global
@@ -124,8 +124,9 @@ main {
     color: $color__light;
     padding: 0 0;
     position: relative;
-
     .main-banner-content {
+      font-size: 1.125rem;
+      font-weight: 200;
       .breacrumb-list {
         font-size: 17px;
         font-weight: 200;
@@ -171,10 +172,17 @@ main {
         top: 0;
         left: 0;
         position: absolute;
+        z-index: 1;
       }
       .main-banner-content {
-        backdrop-filter: blur(20px);
+        background-color: rgba(0, 0, 0, 0.25);
+        @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+          background-color: transparent;
+          backdrop-filter: blur(20px);
+        }
         border: 1px solid $color__light;
+        position: relative;
+        z-index: 2;
       }
     }
     &.main-banner-minimal {
